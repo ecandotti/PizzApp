@@ -14,7 +14,7 @@ import residence_pdp from '../img/residence.png'
 const Card = (props) => {
     return(
         <div className="flex-1 flex flex-nowrap flex-row border p-2 mx-2 mt-2 bg-white rounded h-full">
-            <div className="flex-1"><img src={props.isClient ? client_pdp : residence_pdp} alt="descriptive"/></div>
+            <div className="flex-1"><img src={props.isClient ? client_pdp : residence_pdp} alt="descriptive" className="w-1/2"/></div>
             <div className="flex-1">
                 {props.name}<br/>
                 {props.address}
