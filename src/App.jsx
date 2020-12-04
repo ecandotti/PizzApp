@@ -4,7 +4,7 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 
 import DarkModeButton from './components/DarkModeButton'
 import Navigation from './components/Navigation'
-import Liste from './components/Liste'
+import Search from './components/Search'
 import Adding from './components/Adding'
 import Header from './components/Header'
 import Main from './components/Main'
@@ -50,13 +50,13 @@ class App extends React.Component {
                     <Switch>
                         <Route exact path="/">
                             <Main />
-                        </Route> 
-                        <Route path="/list">
-                            <Liste clientArray={this.state.clientArray}/>
-                        </Route> 
+                        </Route>  
                         <Route path="/adding">
                             <Adding updateData={this.updateData}/>
-                        </Route> 
+                        </Route>
+                        <Route path="/search">
+                            <Search clientArray={this.state.clientArray}/>
+                        </Route>
                     </Switch>
                     <Navigation title={this.state.title} changeTitle={this.changeTitle}/>
                 </Router>
