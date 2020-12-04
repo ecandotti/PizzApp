@@ -1,5 +1,8 @@
 import React from 'react'
 
+import client_pdp from '../img/client.png'
+import residence_pdp from '../img/residence.png'
+
 class Adding extends React.Component {
     constructor(props) {
         super(props);
@@ -39,7 +42,6 @@ class Adding extends React.Component {
                     address: '',
                     info: ''
             })
-            //this.props.updateData()
             window.location.replace("/search")
         })
         .catch(err => console.log(err))
@@ -52,7 +54,8 @@ class Adding extends React.Component {
         }
         return(
             <div className="flex-1 flex flex-col flex-nowrap w-full" style={AddingStyle}>
-                <form method="POST" className="flex flex-col flex-nowrap items-center w-full p-4" onSubmit={this.handleSubmit}>
+                <div className="flex flex-row flex-nowrap items-center m-4"><img src={client_pdp} alt="descriptive" className="w-2/12 mx-auto border rounded cursor-pointer"/><img src={residence_pdp} alt="descriptive" className="w-2/12 mx-auto border rounded cursor-pointer"/></div>
+                <form method="POST" className="flex flex-col flex-nowrap items-center w-full px-4" onSubmit={this.handleSubmit}>
                     <div className="my-4">
                         Nom :<br/>
                         <input name="nom" type="text" className="rounded focus:outline-none pl-1" value={this.state.nom} onChange={this.handleChange} required/>

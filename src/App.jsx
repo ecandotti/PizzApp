@@ -14,7 +14,8 @@ class App extends React.Component {
         super(props)
         this.state = {
             clientArray: [],
-            title: 'Accueil'
+            residenceArray: [],
+            title: ''
         }
         this.updateData = this.updateData.bind(this)
         this.changeTitle = this.changeTitle.bind(this)
@@ -29,10 +30,20 @@ class App extends React.Component {
                 })
             })
             .then(console.log(this.state.clientArray))
+
+        fetch('https://cors-anywhere.herokuapp.com/http://176.189.0.162:8181/residences/list')
+            .then(response => response.json())
+            .then(req => {
+                this.setState({
+                residenceArray: req
+                })
+            })
+            .then(console.log(this.state.residenceArray))
     }
 
     componentDidMount() {
         this.updateData()
+        this.setState({ title: 'Accueil' })
     }
 
     changeTitle(reqTitle) {
@@ -55,7 +66,7 @@ class App extends React.Component {
                             <Adding updateData={this.updateData}/>
                         </Route>
                         <Route path="/search">
-                            <Search clientArray={this.state.clientArray}/>
+                            <Search clientArray={this.state.clientArray} residenceArray={this.state.residenceArray}/>
                         </Route>
                     </Switch>
                     <Navigation title={this.state.title} changeTitle={this.changeTitle}/>
