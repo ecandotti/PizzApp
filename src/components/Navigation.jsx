@@ -9,10 +9,16 @@ class Navigation extends React.Component {
             height: '10vh'
         }
         return(
-            <div className="fixed bottom-0 flex-1 flex flex-row flex-nowrap bg-blue-300 w-full" style={NavStyle}>
-                <NavLink to="/" className="flex-1 flex items-center hover:bg-blue-100 h-full" onClick={() => {this.props.changeTitle("Accueil")}}><AiOutlineHome className="mx-auto text-2xl"/></NavLink>
-                <NavLink to="/adding" className="flex-1 flex items-center hover:bg-blue-100 h-full" onClick={() => {this.props.changeTitle("Ajout")}}><AiOutlineFileAdd className="mx-auto text-2xl"/></NavLink>
-                <NavLink to="/search" className="flex-1 flex items-center hover:bg-blue-100 h-full" onClick={() => {this.props.changeTitle("Recherche")}}><AiOutlineSearch className="mx-auto text-2xl"/></NavLink>
+            <div className="fixed bottom-0 flex-1 flex flex-row flex-nowrap bg-yellow-500 w-full" style={NavStyle}>
+                <NavLink to="/" className="flex-1 flex items-center hover:bg-yellow-400 h-full focus:outline-none">
+                    <AiOutlineHome className="mx-auto text-2xl"/>
+                </NavLink>
+                <NavLink to="/adding" className="flex-1 flex items-center hover:bg-yellow-400 h-full focus:outline-none">
+                    <AiOutlineFileAdd className="mx-auto text-2xl"/>
+                </NavLink>
+                <NavLink to="/search" className="flex-1 flex items-center hover:bg-yellow-400 h-full focus:outline-none">
+                    <AiOutlineSearch className="mx-auto text-2xl"/>
+                </NavLink>
             </div>
         )
     }
