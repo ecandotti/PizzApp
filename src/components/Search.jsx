@@ -11,8 +11,8 @@ const Search = (props) => {
 
     const fuse = new Fuse(props.mainArr, {
         keys: [
-          'cli_name',
-          'res_name'
+          'name',
+          'address'
         ],
         includeScore: true
       })
@@ -32,7 +32,7 @@ const Search = (props) => {
     if(results.length > 0){
         return(
             <div className="flex-1 flex flex-col flex-nowrap" style={searchStyle}>
-                <div className="flex flex-row flex-nowrap mt-8 mx-6">
+                <div className="flex flex-row flex-nowrap mt-8 mx-2">
                     {/* Search Bar */}
                     <div className="flex-1 w-full text-center mb-4">
                         <AiOutlineSearch className="mx-auto"/>
@@ -40,7 +40,7 @@ const Search = (props) => {
                             onChange={onSearch}
                             type="text"
                             value={query}
-                            className="rounded-full w-full mt-2 text-center focus:outline-none" />
+                            className="rounded-full w-full mt-2 text-center focus:outline-none bg-gray-600" />
                     </div>
                 </div>
 
@@ -52,7 +52,8 @@ const Search = (props) => {
                                             name={req.item.name}
                                             address={req.address}
                                             code={req.code}
-                                            isClient={req.item.isClient} />
+                                            isClient={req.item.isClient} 
+                                            onClick={() => {window.location.replace(`/profile/${req.item._id}`)}}/>
                                         )
                                     )
                     }
@@ -71,7 +72,7 @@ const Search = (props) => {
                             onChange={onSearch} 
                             type="text"
                             value={query}
-                            className="rounded-full w-full mt-2 text-center focus:outline-none" />
+                            className="rounded-full w-full mt-2 text-center focus:outline-none bg-gray-600" />
                     </div>
                 </div>
 
