@@ -41,7 +41,7 @@ class App extends React.Component {
 
     render(){
         return (
-            <div className="flex flex-col flex-nowrap bg-gray-100 dark:bg-gray-800 w-screen h-screen">
+            <div className="flex flex-col flex-nowrap bg-gray-500 w-full h-full text-white">
                 <Router>
                     <Header  title={this.state.title}/>
                     <Switch>

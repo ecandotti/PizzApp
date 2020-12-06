@@ -7,8 +7,8 @@ const Header = ({title}) => {
         height: '10vh'
     }
     return(
-        <div className="fixed flex-1 w-full bg-yellow-500 select-none" style={headerStyle}>
-            <div className="flex flex-row flex-nowrap text-gray-800 items-center h-full w-full justify-center text-2xl">
+        <div className="fixed flex-1 w-full bg-gray-800 select-none" style={headerStyle}>
+            <div className="flex flex-row flex-nowrap text-white items-center h-full w-full justify-center text-2xl">
                 <FaPizzaSlice className="mr-2"/>
             </div>
         </div>
