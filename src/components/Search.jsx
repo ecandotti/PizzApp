@@ -6,47 +6,88 @@ import { AiOutlineSearch } from 'react-icons/ai'
 import Card from './Card'
 
 const Search = (props) => {
+
     const [query, updateQuery] = useState('')
 
-    const fuse = new Fuse(props.clientArray, {
+    const fuse = new Fuse(props.mainArr, {
         keys: [
-            "cli_name"
+          'cli_name',
+          'res_name'
         ],
         includeScore: true
-    })
+      })
+    let results = fuse.search(query)
 
     function onSearch({ currentTarget }) {
         updateQuery(currentTarget.value)
-        console.log(fuse.search(currentTarget.value))
+        results = fuse.search(query)
+        console.log(results)
     }
-    const results = fuse.search(query)
 
     const searchStyle = {
         marginTop: '10vh',
         marginBottom: '10vh'
     }
 
-    if(results.length === 0) {
+    if(results.length > 0){
         return(
             <div className="flex-1 flex flex-col flex-nowrap" style={searchStyle}>
-                <div className="flex flex-row flex-nowrap mt-8 mx-2">
+                <div className="flex flex-row flex-nowrap mt-8 mx-6">
                     {/* Search Bar */}
-                    <div className="flex-1 w-full text-center mb-4"><AiOutlineSearch className="mx-auto"/><input onChange={onSearch} type="text" value={query} className="rounded-full w-full mt-2 text-center focus:outline-none"/></div>
+                    <div className="flex-1 w-full text-center mb-4">
+                        <AiOutlineSearch className="mx-auto"/>
+                        <input 
+                            onChange={onSearch}
+                            type="text"
+                            value={query}
+                            className="rounded-full w-full mt-2 text-center focus:outline-none" />
+                    </div>
                 </div>
+
                 <div className="flex flex-col flex-nowrap">
-                    {props.clientArray.map((client) => (<Card key={client._id} name={client.cli_name} address={client.cli_address} isClient={true}/>))}
+                    {
+                        results.map((req) => (
+                                        <Card 
+                                            key={req.item._id}
+                                            name={req.item.name}
+                                            address={req.address}
+                                            code={req.code}
+                                            isClient={req.item.isClient} />
+                                        )
+                                    )
+                    }
                 </div>
             </div>
         )
     } else {
         return(
+            // NO RESULT
             <div className="flex-1 flex flex-col flex-nowrap" style={searchStyle}>
-                <div className="flex flex-row flex-nowrap mt-8 mx-6">
-                    {/* Search Bar */}
-                    <div className="flex-1 w-full text-center mb-4"><AiOutlineSearch className="mx-auto"/><input onChange={onSearch} type="text" value={query} className="rounded-full w-full mt-2 text-center focus:outline-none"/></div>
+
+                <div className="flex flex-row flex-nowrap mt-8 mx-2">
+                    <div className="flex-1 w-full text-center mb-4">
+                        <AiOutlineSearch className="mx-auto"/>
+                        <input
+                            onChange={onSearch} 
+                            type="text"
+                            value={query}
+                            className="rounded-full w-full mt-2 text-center focus:outline-none" />
+                    </div>
                 </div>
+
                 <div className="flex flex-col flex-nowrap">
-                    {results.map((req) => (<Card key={req.item._id} name={req.item.cli_name} address={req.item.cli_address} isClient={true}/>))}
+                    {
+                        props.mainArr.map((main) => (
+                                                <Card
+                                                    key={main._id}
+                                                    name={main.name}
+                                                    address={main.address}
+                                                    code={main.code}
+                                                    isClient={main.isClient} 
+                                                    onClick={() => {window.location.replace(`/profile/${main._id}`)}}/>
+                                                )
+                                            )
+                    }
                 </div>
             </div>
         )
