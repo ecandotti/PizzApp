@@ -3,11 +3,11 @@ import React from 'react'
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 
 import Navigation from './components/Navigation'
-import Search from './components/Search'
-import Adding from './components/Adding'
+import Search from './pages/Search'
+import Adding from './pages/Adding'
 import Header from './components/Header'
-import Main from './components/Main'
-import PersonnalCard from './components/PersonnalCard'
+import Main from './pages/Main'
+import PersonnalCard from './pages/PersonnalCard'
 
 class App extends React.Component {
     constructor(props){
@@ -55,7 +55,7 @@ class App extends React.Component {
                             <Search updateData={this.updateData} mainArr={this.state.mainArr} changeTitle={this.changeTitle}/>
                         </Route>
                         <Route path="/profile/:_id">
-                            <PersonnalCard mainArr={this.state.mainArr}/>
+                            <PersonnalCard mainArr={this.state.mainArr} updateData={this.updateData}/>
                         </Route>
                     </Switch>
                     <Navigation title={this.state.title} changeTitle={this.changeTitle} />
