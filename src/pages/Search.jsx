@@ -3,10 +3,12 @@ import Fuse from 'fuse.js'
 
 import { AiOutlineSearch } from 'react-icons/ai'
 
-import Card from './Card'
+import Card from '../components/Card'
+import { useHistory } from 'react-router-dom'
 
 const Search = (props) => {
 
+    const history = useHistory()
     const [query, updateQuery] = useState('')
 
     const fuse = new Fuse(props.mainArr, {
@@ -18,7 +20,7 @@ const Search = (props) => {
       })
     let results = fuse.search(query)
 
-    function onSearch({ currentTarget }) {
+    function onSearch ({ currentTarget }) {
         updateQuery(currentTarget.value)
         results = fuse.search(query)
         console.log(results)
@@ -53,7 +55,7 @@ const Search = (props) => {
                                             address={req.address}
                                             code={req.code}
                                             isClient={req.item.isClient} 
-                                            onClick={() => {window.location.replace(`/profile/${req.item._id}`)}}/>
+                                            onClick={() => {history.push(`/profile/${req.item._id}`)}}/>
                                         )
                                     )
                     }
@@ -85,7 +87,7 @@ const Search = (props) => {
                                                     address={main.address}
                                                     code={main.code}
                                                     isClient={main.isClient} 
-                                                    onClick={() => {window.location.replace(`/profile/${main._id}`)}}/>
+                                                    onClick={() => {history.push(`/profile/${main._id}`)}}/>
                                                 )
                                             )
                     }

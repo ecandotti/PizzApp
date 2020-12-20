@@ -11,7 +11,7 @@ import { useHistory } from 'react-router-dom'
 
 const PersonnalCard = (props) => {
 
-    let history = useHistory()
+    const history = useHistory()
 
     const [name, setName] = useState('')
     const [address, setAddress] = useState('')
