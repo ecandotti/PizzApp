@@ -1,5 +1,5 @@
 <h1 align="center">
-    <img height="250" hidth="200" src="https://blog.ipleaders.in/wp-content/uploads/2019/11/foodmitho.jpg">
+    <img height="250" src="https://blog.ipleaders.in/wp-content/uploads/2019/11/foodmitho.jpg">
 </h1>
 
 # 🍕 - Pizz'App
@@ -24,5 +24,6 @@ Use :
 It can be download from your navigator.  
 
 ## 📸 Some screenshots
-
-<img height="250" hidth="200" src="https://blog.ipleaders.in/wp-content/uploads/2019/11/foodmitho.jpg">
+<div style='display:flex; justify-content: space-between;'>
+<img height="400" width="200" src="https://user-images.githubusercontent.com/66432682/106345943-c9d85c80-62b3-11eb-8c61-6728ca5119fa.PNG"> <img height="400" width="200" src="https://user-images.githubusercontent.com/66432682/106345951-cfce3d80-62b3-11eb-9b8c-5e54125a6576.PNG"> <img height="400" width="200" src="https://user-images.githubusercontent.com/66432682/106345952-d066d400-62b3-11eb-915a-83eafc53c10c.PNG"> <img height="400" width="200" src="https://user-images.githubusercontent.com/66432682/106345955-d0ff6a80-62b3-11eb-84c2-a72f842286c8.jpg"> <img height="400" width="200" src="https://user-images.githubusercontent.com/66432682/106345957-d0ff6a80-62b3-11eb-989f-11caa35b5564.jpg">
+<div>
