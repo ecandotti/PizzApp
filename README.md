@@ -2,7 +2,7 @@
     <img height="250" hidth="200" src="https://blog.ipleaders.in/wp-content/uploads/2019/11/foodmitho.jpg">
 </h1>
 
-#🍕 - Pizz'App
+# 🍕 - Pizz'App
 When I deliver pizzas and I have to go to a residence that has a code, I always have to look in my notes, or the client did not specify the entry code, in short , a waste of time that can be solved.  
 I therefore created this web application to be able to add residences with the address, a code if there is one, and additional information.
 
